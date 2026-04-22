@@ -13,5 +13,6 @@ public class LoginPagePartnerAPI {
     public void loginTest() {
         System.out.println("Hello World");
         System.out.println("Hello World");
+        System.out.println("Hello World");
     }
 }

@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-22T09:49:37Z" name="Default suite" finished-at="2026-04-22T09:49:37Z" duration-ms="175">
+  <suite started-at="2026-04-22T11:17:04Z" name="Default suite" finished-at="2026-04-22T11:17:04Z" duration-ms="174">
     <groups>
     </groups>
-    <test started-at="2026-04-22T09:49:37Z" name="Default test" finished-at="2026-04-22T09:49:37Z" duration-ms="175">
+    <test started-at="2026-04-22T11:17:04Z" name="Default test" finished-at="2026-04-22T11:17:04Z" duration-ms="174">
       <class name="AuthAPI.LoginPagePartnerAPI">
-        <test-method signature="loginTest()[pri:0, instance:AuthAPI.LoginPagePartnerAPI@49ff7d8c]" started-at="2026-04-22T09:49:37Z" name="loginTest" finished-at="2026-04-22T09:49:37Z" duration-ms="76" status="PASS">
+        <test-method signature="loginTest()[pri:0, instance:AuthAPI.LoginPagePartnerAPI@545b995e]" started-at="2026-04-22T11:17:04Z" name="loginTest" finished-at="2026-04-22T11:17:04Z" duration-ms="90" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
