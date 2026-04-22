@@ -1,4 +1,4 @@
-name: Run Tests and Send Allure Report
+name: Run Tests and Generate Allure Report
 
 on:
   push:
@@ -9,37 +9,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    # 📥 Checkout code
     - name: Checkout code
       uses: actions/checkout@v4
 
+    # ☕ Setup Java
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
 
-    # ✅ FIXED Allure installation
+    # 📦 Install unzip (required)
+    - name: Install unzip
+      run: sudo apt-get update && sudo apt-get install unzip -y
+
+    # 📊 Install Allure (stable method)
     - name: Install Allure
       run: |
-        wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
-        tar -zxvf allure-2.27.0.tgz
-        sudo mv allure-2.27.0 /opt/allure
+        wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.24.0/allure-commandline-2.24.0.zip
+        unzip allure-commandline-2.24.0.zip
+        sudo mv allure-2.24.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
+    # 🧪 Run tests
     - name: Run tests
       run: mvn clean test
 
+    # 📈 Generate Allure Report
     - name: Generate Allure Report
       run: allure generate target/allure-results --clean -o allure-report
 
-    # ✅ Upload report (BEST PRACTICE)
-    - name: Upload Report Artifact
+    # 📤 Upload report (BEST PRACTICE)
+    - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       with:
         name: allure-report
         path: allure-report
 
-    # ⚠️ Email (optional – may fail if report large)
+    # 📧 Send Email (optional)
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       with:
@@ -47,7 +56,9 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Test Report"
+        subject: "Allure Test Report"
         to: dnyaneshwar.tahakik@indiconnect.in
         from: ${{ secrets.EMAIL_USERNAME }}
-        body: "Allure report generated. Download from GitHub Actions artifacts."
+        body: |
+          Your test execution is completed.
+          Download Allure report from GitHub Actions → Artifacts section.
