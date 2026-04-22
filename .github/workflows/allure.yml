@@ -58,7 +58,7 @@ jobs:
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
         subject: "Allure Test Report"
-        to: dnyaneshwar.tahakik@indiconnect.in
+        to: tahakik9767@gmail.com
         from: ${{ secrets.EMAIL_USERNAME }}
         body: |
           Test execution completed successfully.
