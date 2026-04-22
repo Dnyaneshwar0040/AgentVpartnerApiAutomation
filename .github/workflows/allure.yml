@@ -18,11 +18,13 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+    # ✅ FIXED Allure installation
     - name: Install Allure
       run: |
-        sudo apt-add-repository ppa:qameta/allure -y
-        sudo apt-get update
-        sudo apt-get install allure -y
+        wget https://github.com/allure-framework/allure2/releases/latest/download/allure-2.27.0.tgz
+        tar -zxvf allure-2.27.0.tgz
+        sudo mv allure-2.27.0 /opt/allure
+        sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
     - name: Run tests
       run: mvn clean test
@@ -30,12 +32,14 @@ jobs:
     - name: Generate Allure Report
       run: allure generate target/allure-results --clean -o allure-report
 
+    # ✅ Upload report (BEST PRACTICE)
     - name: Upload Report Artifact
       uses: actions/upload-artifact@v4
       with:
         name: allure-report
         path: allure-report
 
+    # ⚠️ Email (optional – may fail if report large)
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       with:
@@ -45,6 +49,5 @@ jobs:
         password: ${{ secrets.EMAIL_PASSWORD }}
         subject: "Test Report"
         to: dnyaneshwar.tahakik@indiconnect.in
-        from: tahakik9767@gmail.com
-        body: "Allure report attached"
-        attachments: allure-report/**
+        from: ${{ secrets.EMAIL_USERNAME }}
+        body: "Allure report generated. Download from GitHub Actions artifacts."
