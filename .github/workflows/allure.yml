@@ -10,22 +10,21 @@ jobs:
 
     steps:
 
-    # 📥 Checkout code
     - name: Checkout code
       uses: actions/checkout@v4
 
-    # ☕ Setup Java
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
 
-    # 📦 Install unzip (required)
     - name: Install unzip
       run: sudo apt-get update && sudo apt-get install unzip -y
 
-    # 📊 Install Allure (stable method)
+    - name: Install zip
+      run: sudo apt-get install zip -y
+
     - name: Install Allure
       run: |
         wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.24.0/allure-commandline-2.24.0.zip
@@ -33,24 +32,26 @@ jobs:
         sudo mv allure-2.24.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
-    # 🧪 Run tests
     - name: Run tests
       run: mvn clean test
 
-    # 📈 Generate Allure Report
     - name: Generate Allure Report
       run: allure generate target/allure-results --clean -o allure-report
 
-    # 📤 Upload report (BEST PRACTICE)
+    # 👉 Compress report (IMPORTANT)
+    - name: Zip Allure Report
+      run: zip -r allure-report.zip allure-report
+
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       with:
         name: allure-report
-        path: allure-report
+        path: allure-report.zip
 
-    # 📧 Send Email (optional)
+    # 📧 Send Email with attachment
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
+      continue-on-error: true
       with:
         server_address: smtp.gmail.com
         server_port: 465
@@ -60,5 +61,9 @@ jobs:
         to: dnyaneshwar.tahakik@indiconnect.in
         from: ${{ secrets.EMAIL_USERNAME }}
         body: |
-          Your test execution is completed.
-          Download Allure report from GitHub Actions → Artifacts section.
+          Test execution completed successfully.
+
+          📊 Allure report is attached (ZIP file).
+          If attachment fails, download from:
+          GitHub → Actions → Artifacts
+        attachments: allure-report.zip
