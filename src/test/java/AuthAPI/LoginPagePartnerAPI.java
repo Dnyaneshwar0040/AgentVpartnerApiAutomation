@@ -1,9 +1,17 @@
 package AuthAPI;
 
+import org.testng.annotations.Test;
+import io.qameta.allure.*;
+
 public class LoginPagePartnerAPI {
-	
-	    public static void main(String[] args) {
-	        System.out.println("Hello World");
-	        System.out.println("Hello World");
-	}
+
+    @Test
+    @Epic("API Testing")
+    @Feature("Login API")
+    @Story("Valid Login")
+    @Severity(SeverityLevel.CRITICAL)
+    public void loginTest() {
+        System.out.println("Hello World");
+        System.out.println("Hello World");
+    }
 }
