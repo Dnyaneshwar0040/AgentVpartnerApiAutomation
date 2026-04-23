@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="AuthAPI.LoginPagePartnerAPI">
+        <methods>
+          <include name="TC11_longPan"/>
+          <include name="TC13_caseSensitivePan"/>
+          <include name="TC10_sqlInjection"/>
+          <include name="TC15_invalidContentType"/>
+          <include name="TC14_missingBody"/>
+          <include name="TC08_nullPan"/>
+          <include name="TC07_nullPassword"/>
+          <include name="TC04_emptyPan"/>
+          <include name="TC03_invalidPan"/>
+          <include name="TC06_bothEmpty"/>
+          <include name="TC02_invalidPassword"/>
+          <include name="TC05_emptyPassword"/>
+          <include name="TC12_longPassword"/>
+          <include name="TC09_specialCharPan"/>
+        </methods>
+      </class> <!-- AuthAPI.LoginPagePartnerAPI -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
