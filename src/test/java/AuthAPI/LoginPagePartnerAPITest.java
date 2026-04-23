@@ -5,6 +5,9 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
 @Epic("API Testing")
@@ -13,20 +16,28 @@ public class LoginPagePartnerAPITest {
 
     String url = "https://vpartner.staging.api.indifly.in/vagentlogin/auth/login";
 
-    // 🔹 Common login method
+    // ================= COMMON METHOD =================
+
     @Step("Login with PAN: {0} and Password: {1}")
     public Response loginRequest(String pan, String password) {
 
-        String requestBody = "{"
-                + "\"panCardNumber\":\"" + pan + "\","
-                + "\"password\":\"" + password + "\""
-                + "}";
+        Map<String, Object> body = new HashMap<>();
+        body.put("IP", "27.107.46.10");
+        body.put("browser", "chrome");
+        body.put("device", "desktop");
+        body.put("latitude", "18.553855349376658");
+        body.put("longitude", "73.94797503719077");
+        body.put("os", "Windows");
+        body.put("contactNumber", null);
+        body.put("panCardNumber", pan);
+        body.put("password", password);
 
-        attachRequest(requestBody);
+        attachRequest(body.toString());
 
         Response response = given()
                 .header("Content-Type", "application/json")
-                .body(requestBody)
+                .header("accept", "application/json")
+                .body(body)
                 .when()
                 .post(url)
                 .then()
@@ -37,7 +48,8 @@ public class LoginPagePartnerAPITest {
         return response;
     }
 
-    // 🔹 Allure attachments
+    // ================= ALLURE ATTACHMENTS =================
+
     @Attachment(value = "Request", type = "application/json")
     public String attachRequest(String request) {
         return request;
@@ -48,16 +60,18 @@ public class LoginPagePartnerAPITest {
         return response;
     }
 
-    // 🔹 Common validation methods
+    // ================= VALIDATIONS =================
+
     public void validateSuccess(Response res) {
         Assert.assertEquals(res.getStatusCode(), 200);
 
         String body = res.asString().toLowerCase();
+
         Assert.assertTrue(
                 body.contains("success") ||
                 body.contains("token") ||
                 body.contains("data"),
-                "Expected success response but got: " + body
+                "Expected SUCCESS but got: " + body
         );
     }
 
@@ -65,11 +79,12 @@ public class LoginPagePartnerAPITest {
         Assert.assertEquals(res.getStatusCode(), 200);
 
         String body = res.asString().toLowerCase();
+
         Assert.assertTrue(
                 body.contains("invalid") ||
-                body.contains("fail") ||
-                body.contains("error"),
-                "Expected failure response but got: " + body
+                body.contains("error") ||
+                body.contains("fail"),
+                "Expected FAILURE but got: " + body
         );
     }
 
