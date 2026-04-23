@@ -1,4 +1,4 @@
-name: Run Tests and Generate Allure Report
+name: Allure Report Pipeline
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
 
     steps:
 
-    # 📥 Checkout code
+    # 📥 Checkout main code
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -18,12 +18,12 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
-        distribution: 'temurin'
-        java-version: '17'
+        distribution: temurin
+        java-version: 17
 
-    # 📦 Install unzip & zip
-    - name: Install unzip and zip
-      run: sudo apt-get update && sudo apt-get install unzip zip -y
+    # 📦 Install unzip
+    - name: Install unzip
+      run: sudo apt-get update && sudo apt-get install unzip -y
 
     # 📊 Install Allure
     - name: Install Allure
@@ -33,44 +33,39 @@ jobs:
         sudo mv allure-2.24.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
-    # 🔽 Download previous history (NEW)
-    - name: Download Allure History
-      uses: actions/download-artifact@v4
-      continue-on-error: true
-      with:
-        name: allure-history
-        path: allure-history
-
     # 🧪 Run tests
     - name: Run tests
       run: mvn clean test
 
-    # 📈 Generate Allure Report with history (UPDATED)
+    # 📂 Checkout gh-pages branch (for history)
+    - name: Checkout gh-pages
+      uses: actions/checkout@v4
+      with:
+        ref: gh-pages
+        path: gh-pages
+      continue-on-error: true
+
+    # 📈 Generate Allure Report with history
     - name: Generate Allure Report
       run: |
         mkdir -p target/allure-results/history
-        cp -r allure-history/history target/allure-results/ || true
+        cp -r gh-pages/history target/allure-results/ || true
         allure generate target/allure-results --clean -o allure-report
 
-    # 💾 Save history for next run (NEW)
-    - name: Save Allure History
-      uses: actions/upload-artifact@v4
+    # 💾 Copy history for next run
+    - name: Save history
+      run: |
+        mkdir -p gh-pages
+        cp -r allure-report/history gh-pages/history
+
+    # 🚀 Deploy report to GitHub Pages
+    - name: Deploy Allure Report
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: allure-history
-        path: allure-report/history
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: allure-report
 
-    # 📦 Zip report
-    - name: Zip Allure Report
-      run: zip -r allure-report.zip allure-report
-
-    # 📤 Upload report
-    - name: Upload Allure Report
-      uses: actions/upload-artifact@v4
-      with:
-        name: allure-report
-        path: allure-report.zip
-
-    # 📧 Send Email (safe)
+    # 📧 Send Email (optional)
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       continue-on-error: true
@@ -79,15 +74,13 @@ jobs:
         server_port: 465
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        subject: "Test Execution Completed"
+        subject: "Allure Test Report"
         to: dnyaneshwar.tahakik@indiconnect.in
         from: ${{ secrets.EMAIL_USERNAME }}
         body: |
-          Your automation test run is completed successfully.
+          Test execution completed successfully.
 
-          View report here:
-          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-          Go to Artifacts section to download the report.
+          View Allure Report:
+          https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
 
           Thank you.
