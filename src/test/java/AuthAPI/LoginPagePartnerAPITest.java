@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 @Epic("API Testing")
 @Feature("Login API")
-public class LoginPagePartnerAPI {
+public class LoginPagePartnerAPITest {
 
     String url = "https://vpartner.staging.api.indifly.in/vagentlogin/auth/login";
 
