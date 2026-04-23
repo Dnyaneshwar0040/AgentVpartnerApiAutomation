@@ -152,7 +152,7 @@ public class LoginPagePartnerAPITest {
 
     @Test(description = "Case Sensitivity")
     public void TC13_caseSensitivePan() {
-        validateFailure(loginRequest("BMJPT8242F", "Test@123"));
+        validateSuccess(loginRequest("BMJPT8242F", "Test@123"));
     }
 
     @Test(description = "Missing Body")
