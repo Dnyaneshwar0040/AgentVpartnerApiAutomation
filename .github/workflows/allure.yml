@@ -33,26 +33,44 @@ jobs:
         sudo mv allure-2.24.0 /opt/allure
         sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
+    # 🔽 Download previous history (NEW)
+    - name: Download Allure History
+      uses: actions/download-artifact@v4
+      continue-on-error: true
+      with:
+        name: allure-history
+        path: allure-history
+
     # 🧪 Run tests
     - name: Run tests
       run: mvn clean test
 
-    # 📈 Generate Allure Report
+    # 📈 Generate Allure Report with history (UPDATED)
     - name: Generate Allure Report
-      run: allure generate target/allure-results --clean -o allure-report
+      run: |
+        mkdir -p target/allure-results/history
+        cp -r allure-history/history target/allure-results/ || true
+        allure generate target/allure-results --clean -o allure-report
 
-    # 📦 Zip report (optional for download)
+    # 💾 Save history for next run (NEW)
+    - name: Save Allure History
+      uses: actions/upload-artifact@v4
+      with:
+        name: allure-history
+        path: allure-report/history
+
+    # 📦 Zip report
     - name: Zip Allure Report
       run: zip -r allure-report.zip allure-report
 
-    # 📤 Upload artifact
+    # 📤 Upload report
     - name: Upload Allure Report
       uses: actions/upload-artifact@v4
       with:
         name: allure-report
         path: allure-report.zip
 
-    # 📧 Send Email (SAFE version - no attachment)
+    # 📧 Send Email (safe)
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       continue-on-error: true
