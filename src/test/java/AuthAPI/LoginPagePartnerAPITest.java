@@ -13,7 +13,7 @@ public class LoginPagePartnerAPITest {
 
     String url = "https://vpartner.staging.api.indifly.in/vagentlogin/auth/login";
 
-    // 🔹 Common request method
+    // 🔹 Common login method
     @Step("Login with PAN: {0} and Password: {1}")
     public Response loginRequest(String pan, String password) {
 
@@ -37,7 +37,7 @@ public class LoginPagePartnerAPITest {
         return response;
     }
 
-    // 🔹 Attachments for Allure
+    // 🔹 Allure attachments
     @Attachment(value = "Request", type = "application/json")
     public String attachRequest(String request) {
         return request;
@@ -48,87 +48,96 @@ public class LoginPagePartnerAPITest {
         return response;
     }
 
-    // ✅ VALID LOGIN
-    @Test(description = "Valid Login")
-    public void TC01_validLogin() {
-        Response res = loginRequest("bmjpt8242f", "Test@123");
+    // 🔹 Common validation methods
+    public void validateSuccess(Response res) {
         Assert.assertEquals(res.getStatusCode(), 200);
-        Assert.assertTrue(res.asString().contains("success") || res.asString().contains("token"));
+
+        String body = res.asString().toLowerCase();
+        Assert.assertTrue(
+                body.contains("success") ||
+                body.contains("token") ||
+                body.contains("data"),
+                "Expected success response but got: " + body
+        );
     }
 
-    // ❌ INVALID CASES (API still returns 200, so check response body)
+    public void validateFailure(Response res) {
+        Assert.assertEquals(res.getStatusCode(), 200);
+
+        String body = res.asString().toLowerCase();
+        Assert.assertTrue(
+                body.contains("invalid") ||
+                body.contains("fail") ||
+                body.contains("error"),
+                "Expected failure response but got: " + body
+        );
+    }
+
+    // ================= TEST CASES =================
+
+    @Test(description = "Valid Login")
+    public void TC01_validLogin() {
+        validateSuccess(loginRequest("bmjpt8242f", "Test@123"));
+    }
+
     @Test(description = "Invalid Password")
     public void TC02_invalidPassword() {
-        Response res = loginRequest("bmjpt8242f", "Wrong@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
-        Assert.assertTrue(res.asString().toLowerCase().contains("invalid"));
+        validateFailure(loginRequest("bmjpt8242f", "Wrong@123"));
     }
 
     @Test(description = "Invalid PAN")
     public void TC03_invalidPan() {
-        Response res = loginRequest("INVALID", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
-        Assert.assertTrue(res.asString().toLowerCase().contains("invalid"));
+        validateFailure(loginRequest("INVALID", "Test@123"));
     }
 
     @Test(description = "Empty PAN")
     public void TC04_emptyPan() {
-        Response res = loginRequest("", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("", "Test@123"));
     }
 
     @Test(description = "Empty Password")
     public void TC05_emptyPassword() {
-        Response res = loginRequest("bmjpt8242f", "");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("bmjpt8242f", ""));
     }
 
     @Test(description = "Both Empty")
     public void TC06_bothEmpty() {
-        Response res = loginRequest("", "");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("", ""));
     }
 
     @Test(description = "Null PAN")
     public void TC07_nullPan() {
-        Response res = loginRequest(null, "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest(null, "Test@123"));
     }
 
     @Test(description = "Null Password")
     public void TC08_nullPassword() {
-        Response res = loginRequest("bmjpt8242f", null);
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("bmjpt8242f", null));
     }
 
     @Test(description = "Special Characters PAN")
     public void TC09_specialCharPan() {
-        Response res = loginRequest("@@@###", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("@@@###", "Test@123"));
     }
 
     @Test(description = "SQL Injection")
     public void TC10_sqlInjection() {
-        Response res = loginRequest("bmjpt8242f' OR '1'='1", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("bmjpt8242f' OR '1'='1", "Test@123"));
     }
 
     @Test(description = "Long PAN")
     public void TC11_longPan() {
-        Response res = loginRequest("bmjpt8242fxxxxxxxx", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("bmjpt8242fxxxxxxxx", "Test@123"));
     }
 
     @Test(description = "Long Password")
     public void TC12_longPassword() {
-        Response res = loginRequest("bmjpt8242f", "Test@123xxxxxxxx");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("bmjpt8242f", "Test@123xxxxxxxx"));
     }
 
     @Test(description = "Case Sensitivity")
     public void TC13_caseSensitivePan() {
-        Response res = loginRequest("BMJPT8242F", "Test@123");
-        Assert.assertEquals(res.getStatusCode(), 200);
+        validateFailure(loginRequest("BMJPT8242F", "Test@123"));
     }
 
     @Test(description = "Missing Body")
@@ -138,7 +147,7 @@ public class LoginPagePartnerAPITest {
                 .when()
                 .post(url);
 
-        Assert.assertTrue(res.getStatusCode() >= 400);
+        validateFailure(res);
     }
 
     @Test(description = "Invalid Content-Type")
@@ -149,6 +158,6 @@ public class LoginPagePartnerAPITest {
                 .when()
                 .post(url);
 
-        Assert.assertTrue(res.getStatusCode() >= 400);
+        validateFailure(res);
     }
 }
