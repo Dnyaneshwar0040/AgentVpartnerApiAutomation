@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Assertion Failures",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "API Errors",
+    "matchedStatuses": ["broken"]
+  }
+]
