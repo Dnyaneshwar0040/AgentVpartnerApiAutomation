@@ -1,0 +1,19 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*"
+    },
+    "body": {
+        "status": "SUCCESS",
+        "message": "Otp sent successfully.",
+        "data": {
+            "otpVerificationToken": "bf8cdaf8-d51a-4d4d-82b2-8b89dc5860e7",
+            "otp": 116108,
+            "clientType": "agent"
+        },
+        "code": 200
+    }
+}
