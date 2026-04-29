@@ -17,8 +17,13 @@ public class LoginPagePartnerAPITest {
     String loginUrl = "https://vpartner.dev.api.indifly.in/vagentlogin/auth/login";
     String otpUrl = "https://vpartner.dev.api.indifly.in/vagentlogin/auth/validate/loginOtp";
 
+    // ================= COMMON ATTACH METHOD =================
+    public void attach(String name, String content) {
+        Allure.addAttachment(name, "application/json", content);
+    }
+
     // ================= LOGIN API =================
-    @Step("Login API")
+    @Step("Login API Call")
     public Response loginRequest(String pan, String password) {
 
         Map<String, Object> body = new HashMap<>();
@@ -32,45 +37,44 @@ public class LoginPagePartnerAPITest {
         body.put("panCardNumber", pan);
         body.put("password", password);
 
-        attachRequest(body.toString());
+        attach("Login Request", body.toString());
 
         Response res = given()
                 .header("Content-Type", "application/json")
                 .body(body)
-                .post(loginUrl);
+                .when()
+                .post(loginUrl)
+                .then()
+                .extract().response();
 
-        attachResponse(res.asPrettyString());
+        attach("Login Response", res.asPrettyString());
+        attach("Status Code", String.valueOf(res.getStatusCode()));
+
         return res;
     }
 
     // ================= OTP API =================
-    @Step("Validate OTP API")
+    @Step("Validate OTP API Call")
     public Response validateOtp(String token, String otp) {
 
         Map<String, Object> body = new HashMap<>();
         body.put("otpVerificationToken", token);
         body.put("otp", otp);
 
-        attachRequest(body.toString());
+        attach("OTP Request", body.toString());
 
         Response res = given()
                 .header("Content-Type", "application/json")
                 .body(body)
-                .post(otpUrl);
+                .when()
+                .post(otpUrl)
+                .then()
+                .extract().response();
 
-        attachResponse(res.asPrettyString());
+        attach("OTP Response", res.asPrettyString());
+        attach("Status Code", String.valueOf(res.getStatusCode()));
+
         return res;
-    }
-
-    // ================= ALLURE =================
-    @Attachment(value = "Request", type = "application/json")
-    public String attachRequest(String request) {
-        return request;
-    }
-
-    @Attachment(value = "Response", type = "application/json")
-    public String attachResponse(String response) {
-        return response;
     }
 
     // ================= VALIDATIONS =================
@@ -88,92 +92,77 @@ public class LoginPagePartnerAPITest {
 
     // ================= TEST CASES =================
 
-    // 1. Valid Login
     @Test
     public void TC01_validLogin() {
         success(loginRequest("bmjpt8242f", "Test@123"));
     }
 
-    // 2. Invalid Password
     @Test
     public void TC02_invalidPassword() {
         failure(loginRequest("bmjpt8242f", "Wrong@123"));
     }
 
-    // 3. Invalid PAN
     @Test
     public void TC03_invalidPan() {
         failure(loginRequest("INVALID", "Test@123"));
     }
 
-    // 4. Empty PAN
     @Test
     public void TC04_emptyPan() {
         failure(loginRequest("", "Test@123"));
     }
 
-    // 5. Empty Password
     @Test
     public void TC05_emptyPassword() {
         failure(loginRequest("bmjpt8242f", ""));
     }
 
-    // 6. Both Empty
     @Test
     public void TC06_bothEmpty() {
         failure(loginRequest("", ""));
     }
 
-    // 7. Null PAN
     @Test
     public void TC07_nullPan() {
         failure(loginRequest(null, "Test@123"));
     }
 
-    // 8. Null Password
     @Test
     public void TC08_nullPassword() {
         failure(loginRequest("bmjpt8242f", null));
     }
 
-    // 9. Special Characters
     @Test
     public void TC09_specialChar() {
         failure(loginRequest("@@@###", "Test@123"));
     }
 
-    // 10. SQL Injection
     @Test
     public void TC10_sqlInjection() {
         failure(loginRequest("bmjpt8242f' OR '1'='1", "Test@123"));
     }
 
-    // 11. Long PAN
     @Test
     public void TC11_longPan() {
         failure(loginRequest("bmjpt8242fxxxxxxxx", "Test@123"));
     }
 
-    // 12. Long Password
     @Test
     public void TC12_longPassword() {
         failure(loginRequest("bmjpt8242f", "Test@123xxxxxxxx"));
     }
 
-    // 13. Case Sensitivity
     @Test
     public void TC13_caseSensitive() {
         success(loginRequest("BMJPT8242F", "Test@123"));
     }
 
-    // 14. Missing Body
     @Test
     public void TC14_missingBody() {
         Response res = given().post(loginUrl);
         failure(res);
     }
 
-    // 15. Invalid Content-Type
     @Test
     public void TC15_invalidContentType() {
         Response res = given()
@@ -185,18 +174,15 @@ public class LoginPagePartnerAPITest {
 
     // ================= OTP FLOW =================
 
-    // 16. Full Flow (Login → OTP → Validate)
     @Test
     public void TC16_loginAndValidateOtp() {
-
         Response loginRes = loginRequest("bmjpt8242f", "Test@123");
         success(loginRes);
 
         String token = loginRes.jsonPath().getString("body.data.otpVerificationToken");
         String otp = loginRes.jsonPath().getString("body.data.otp");
 
-        Response otpRes = validateOtp(token, otp);
-        success(otpRes);
+        success(validateOtp(token, otp));
     }
 
     // 17. Invalid OTP
@@ -315,5 +301,4 @@ public class LoginPagePartnerAPITest {
 
         failure(res);
     }
-    
 }
