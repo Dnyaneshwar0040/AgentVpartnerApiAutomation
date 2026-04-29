@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 @Feature("Login API")
 public class LoginPagePartnerAPITest {
 
-    String url = "https://vpartner.staging.api.indifly.in/vagentlogin/auth/login";
+    String url = "https://vpartner.dev.api.indifly.in/vagentlogin/auth/login";
 
     // ================= COMMON METHOD =================
 
