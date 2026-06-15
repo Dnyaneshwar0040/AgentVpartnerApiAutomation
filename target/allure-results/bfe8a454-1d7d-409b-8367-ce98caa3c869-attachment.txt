@@ -1,0 +1,39 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*"
+    },
+    "body": {
+        "status": "SUCCESS",
+        "message": "OTP Verified",
+        "data": {
+            "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImI1NTI2YzZiLTJjYjktNGMxYy1iNTFjLTBhZWNlNDUzZTgyNSJ9.eyJ1c2VySWQiOiIyZTY5ODNmNy01ZjhjLTQzNWItYjVkNi00Y2M5MDlhOTkzMzciLCJ1c2VyTmFtZSI6IkJNSlBUODI0MkYiLCJwYW5DYXJkTnVtYmVyIjoiQk1KUFQ4MjQyRiIsIm5hbWUiOiJEbnlhbmVzaHdhciBUYWhha2lrIiwiZW50aXR5SWQiOiI1N2Q0ZDAwNC02MmQ4LTRiMDEtYjFmNC1jZjc2OGQyYTY1ZTMiLCJ1c2VyVHlwZSI6ImFnZW50LXNlbGYiLCJkaXNwbGF5SWQiOiJWUDg0MTQ3NjMiLCJicmFuY2hJZCI6IjU3ZDRkMDA0LTYyZDgtNGIwMS1iMWY0LWNmNzY4ZDJhNjVlMyIsImNsaWVudFR5cGUiOiJhZ2VudCIsInNlc3Npb25UaW1lIjpbeyJzdGFydFRpbWUiOjE3Nzc0NjEyODgwNTYsImV4cGlyeVRpbWUiOjE3Nzc0NjMwODgwNTZ9XSwidW5pcXVlSWQiOiJkZDQ3OGEzMi1mZmZhLTRiYjctYjA5OS0wN2U4NDQzMzQyNTIiLCJhYWRoYXJOdW1iZXIiOiI1Mzg5MjkzODY1NjEiLCJwaG9uZSI6Ijk3Njc5ODExODAiLCJlbWFpbCI6ImRueWFuZXNod2FyLnRhaGFraWsrNUBpbmRpY29ubmVjdC5pbiIsIm1QaW5WYWxpZCI6ZmFsc2UsInN0ZXAiOjEsImF1ZGllbmNlIjoidXNlciIsImp0aSI6IjY2YzI3MzRhLTYxODItNDQxNS1hODFmLTc4MzU3MTI5M2Q2YyIsImlhdCI6MTc3NzQ2MTI4OCwiZXhwIjoxNzgwMDUzMjg4LCJhdWQiOlsicGxhdGZvcm0iXSwiaXNzIjoiaW5kaWNvbm5lY3QiLCJzdWIiOiJ1bWVzaC5uYW1kZXZAaW5kaWNvbm5lY3QuaW4ifQ.zLsnT6GddY7bTDfxmy1s5fLkuGrxuo6Y5Apgi2ng2mxamImSpQK-rkiRrBKWtkGwdi3TkIrazJwf6GVotlTDJcVvJkwTtLNEoccl8KCw_aemgZ1ZiVNQSPqKbPCo_rUCH3TXc7tIUwTcbAyN7uHOc2pBKTzrnwCS_dVZDt5KEDFPj1GalLA7swUojOhxASxKHJozlVdlZGZvhsRBgN4oYCSt5zVsI0lb9g4fjP2shoiXYl9RGMt68P3v3GD5Eard3fdjdJN8qTKQlrgE3R7bIBEdYBXjBhRwt7RXmEhbyGDeTfqPmc8Q-YC7q4qppGFS-9ERC-2NOtix5QLMLBiOkSaBEds6E6CaUGDloBXtQKeK4DP_6v5I0IIHxTyaAD_u0wZLxuX0VmGE8KTFgpijmCCFFyIsV3vZTaglx-Bu8UMQaD_sizfcVIpIE8yGgIaJMcY8NKsjFNubnmN1o4ARualIeNvb6PLqIIL2MeJonYzmCPDIuFiT4v4ToL5hHfwpgyiMDW1qZt2w51f6so9pXFWtt0R8OFj41N9vOwI-tiYrt9FXAfphcSnk-0KlqUDygMmAqrLJl7jQiCbzPlyQylY5FK4ZrtYyiAH08L87PlLQ-0I2B93q8kCJ0yxt2DSkWNod14h-0YK5Emlxn6eoow_cgak7R-iZ1cde4jzDFyY",
+            "userId": "2e6983f7-5f8c-435b-b5d6-4cc909a99337",
+            "userName": "BMJPT8242F",
+            "panCardNumber": "BMJPT8242F",
+            "name": "Dnyaneshwar Tahakik",
+            "entityId": "57d4d004-62d8-4b01-b1f4-cf768d2a65e3",
+            "userType": "agent-self",
+            "displayId": "VP8414763",
+            "branchId": "57d4d004-62d8-4b01-b1f4-cf768d2a65e3",
+            "clientType": "agent",
+            "sessionTime": [
+                {
+                    "startTime": 1777461288056,
+                    "expiryTime": 1777463088056
+                }
+            ],
+            "uniqueId": "dd478a32-fffa-4bb7-b099-07e844334252",
+            "aadharNumber": "538929386561",
+            "phone": "9767981180",
+            "email": "dnyaneshwar.tahakik+5@indiconnect.in",
+            "mPinValid": false,
+            "step": 1,
+            "audience": "user"
+        },
+        "code": 200
+    }
+}
