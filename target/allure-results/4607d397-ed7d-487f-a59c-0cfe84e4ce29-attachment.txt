@@ -1,0 +1,14 @@
+{
+    "statusCode": 400,
+    "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Methods": "*"
+    },
+    "body": {
+        "status": "ERROR",
+        "code": 400,
+        "message": "Either PAN Card Number or Contact Number, and Password are required."
+    }
+}

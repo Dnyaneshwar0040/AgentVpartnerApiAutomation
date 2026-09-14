@@ -2,128 +2,128 @@
 <testng-results ignored="0" total="30" passed="30" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-29T16:44:23 IST" name="Default suite" finished-at="2026-04-29T16:44:48 IST" duration-ms="25871">
+  <suite started-at="2026-09-14T15:54:55 IST" name="Default suite" finished-at="2026-09-14T15:55:16 IST" duration-ms="20482">
     <groups>
     </groups>
-    <test started-at="2026-04-29T16:44:23 IST" name="Default test" finished-at="2026-04-29T16:44:48 IST" duration-ms="25871">
+    <test started-at="2026-09-14T15:54:55 IST" name="Default test" finished-at="2026-09-14T15:55:16 IST" duration-ms="20482">
       <class name="AuthAPI.LoginPagePartnerAPITest">
-        <test-method signature="TC01_validLogin()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:23 IST" name="TC01_validLogin" finished-at="2026-04-29T16:44:28 IST" duration-ms="5904" status="PASS">
+        <test-method signature="TC01_validLogin()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:54:55 IST" name="TC01_validLogin" finished-at="2026-09-14T15:55:00 IST" duration-ms="5008" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC01_validLogin -->
-        <test-method signature="TC02_invalidPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:29 IST" name="TC02_invalidPassword" finished-at="2026-04-29T16:44:29 IST" duration-ms="446" status="PASS">
+        <test-method signature="TC02_invalidPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:00 IST" name="TC02_invalidPassword" finished-at="2026-09-14T15:55:01 IST" duration-ms="256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC02_invalidPassword -->
-        <test-method signature="TC03_invalidPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:29 IST" name="TC03_invalidPan" finished-at="2026-04-29T16:44:29 IST" duration-ms="182" status="PASS">
+        <test-method signature="TC03_invalidPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC03_invalidPan" finished-at="2026-09-14T15:55:01 IST" duration-ms="118" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC03_invalidPan -->
-        <test-method signature="TC04_emptyPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:29 IST" name="TC04_emptyPan" finished-at="2026-04-29T16:44:29 IST" duration-ms="117" status="PASS">
+        <test-method signature="TC04_emptyPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC04_emptyPan" finished-at="2026-09-14T15:55:01 IST" duration-ms="78" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC04_emptyPan -->
-        <test-method signature="TC05_emptyPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:29 IST" name="TC05_emptyPassword" finished-at="2026-04-29T16:44:29 IST" duration-ms="114" status="PASS">
+        <test-method signature="TC05_emptyPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC05_emptyPassword" finished-at="2026-09-14T15:55:01 IST" duration-ms="96" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC05_emptyPassword -->
-        <test-method signature="TC06_bothEmpty()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:29 IST" name="TC06_bothEmpty" finished-at="2026-04-29T16:44:30 IST" duration-ms="120" status="PASS">
+        <test-method signature="TC06_bothEmpty()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC06_bothEmpty" finished-at="2026-09-14T15:55:01 IST" duration-ms="79" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC06_bothEmpty -->
-        <test-method signature="TC07_nullPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC07_nullPan" finished-at="2026-04-29T16:44:30 IST" duration-ms="118" status="PASS">
+        <test-method signature="TC07_nullPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC07_nullPan" finished-at="2026-09-14T15:55:01 IST" duration-ms="76" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC07_nullPan -->
-        <test-method signature="TC08_nullPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC08_nullPassword" finished-at="2026-04-29T16:44:30 IST" duration-ms="142" status="PASS">
+        <test-method signature="TC08_nullPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC08_nullPassword" finished-at="2026-09-14T15:55:01 IST" duration-ms="68" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC08_nullPassword -->
-        <test-method signature="TC09_specialChar()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC09_specialChar" finished-at="2026-04-29T16:44:30 IST" duration-ms="153" status="PASS">
+        <test-method signature="TC09_specialChar()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC09_specialChar" finished-at="2026-09-14T15:55:01 IST" duration-ms="102" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC09_specialChar -->
-        <test-method signature="TC10_sqlInjection()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC10_sqlInjection" finished-at="2026-04-29T16:44:30 IST" duration-ms="146" status="PASS">
+        <test-method signature="TC10_sqlInjection()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC10_sqlInjection" finished-at="2026-09-14T15:55:01 IST" duration-ms="91" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC10_sqlInjection -->
-        <test-method signature="TC11_longPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC11_longPan" finished-at="2026-04-29T16:44:30 IST" duration-ms="144" status="PASS">
+        <test-method signature="TC11_longPan()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC11_longPan" finished-at="2026-09-14T15:55:01 IST" duration-ms="86" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC11_longPan -->
-        <test-method signature="TC12_longPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:30 IST" name="TC12_longPassword" finished-at="2026-04-29T16:44:31 IST" duration-ms="270" status="PASS">
+        <test-method signature="TC12_longPassword()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:01 IST" name="TC12_longPassword" finished-at="2026-09-14T15:55:02 IST" duration-ms="256" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC12_longPassword -->
-        <test-method signature="TC13_caseSensitive()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:31 IST" name="TC13_caseSensitive" finished-at="2026-04-29T16:44:31 IST" duration-ms="587" status="PASS">
+        <test-method signature="TC13_caseSensitive()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:02 IST" name="TC13_caseSensitive" finished-at="2026-09-14T15:55:02 IST" duration-ms="425" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC13_caseSensitive -->
-        <test-method signature="TC14_missingBody()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:31 IST" name="TC14_missingBody" finished-at="2026-04-29T16:44:31 IST" duration-ms="116" status="PASS">
+        <test-method signature="TC14_missingBody()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:02 IST" name="TC14_missingBody" finished-at="2026-09-14T15:55:02 IST" duration-ms="66" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC14_missingBody -->
-        <test-method signature="TC15_invalidContentType()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:31 IST" name="TC15_invalidContentType" finished-at="2026-04-29T16:44:31 IST" duration-ms="129" status="PASS">
+        <test-method signature="TC15_invalidContentType()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:02 IST" name="TC15_invalidContentType" finished-at="2026-09-14T15:55:02 IST" duration-ms="97" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC15_invalidContentType -->
-        <test-method signature="TC16_loginAndValidateOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:31 IST" name="TC16_loginAndValidateOtp" finished-at="2026-04-29T16:44:33 IST" duration-ms="1996" status="PASS">
+        <test-method signature="TC16_loginAndValidateOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:02 IST" name="TC16_loginAndValidateOtp" finished-at="2026-09-14T15:55:04 IST" duration-ms="1354" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC16_loginAndValidateOtp -->
-        <test-method signature="TC17_invalidOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:33 IST" name="TC17_invalidOtp" finished-at="2026-04-29T16:44:34 IST" duration-ms="721" status="PASS">
+        <test-method signature="TC17_invalidOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:04 IST" name="TC17_invalidOtp" finished-at="2026-09-14T15:55:04 IST" duration-ms="535" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC17_invalidOtp -->
-        <test-method signature="TC18_emptyOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:34 IST" name="TC18_emptyOtp" finished-at="2026-04-29T16:44:35 IST" duration-ms="717" status="PASS">
+        <test-method signature="TC18_emptyOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:04 IST" name="TC18_emptyOtp" finished-at="2026-09-14T15:55:05 IST" duration-ms="507" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC18_emptyOtp -->
-        <test-method signature="TC19_nullOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:35 IST" name="TC19_nullOtp" finished-at="2026-04-29T16:44:36 IST" duration-ms="687" status="PASS">
+        <test-method signature="TC19_nullOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:05 IST" name="TC19_nullOtp" finished-at="2026-09-14T15:55:05 IST" duration-ms="516" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC19_nullOtp -->
-        <test-method signature="TC20_wrongToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:36 IST" name="TC20_wrongToken" finished-at="2026-04-29T16:44:36 IST" duration-ms="773" status="PASS">
+        <test-method signature="TC20_wrongToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:05 IST" name="TC20_wrongToken" finished-at="2026-09-14T15:55:06 IST" duration-ms="548" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC20_wrongToken -->
-        <test-method signature="TC21_emptyToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:36 IST" name="TC21_emptyToken" finished-at="2026-04-29T16:44:37 IST" duration-ms="700" status="PASS">
+        <test-method signature="TC21_emptyToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:06 IST" name="TC21_emptyToken" finished-at="2026-09-14T15:55:06 IST" duration-ms="517" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC21_emptyToken -->
-        <test-method signature="TC22_nullToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:37 IST" name="TC22_nullToken" finished-at="2026-04-29T16:44:38 IST" duration-ms="1005" status="PASS">
+        <test-method signature="TC22_nullToken()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:06 IST" name="TC22_nullToken" finished-at="2026-09-14T15:55:07 IST" duration-ms="520" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC22_nullToken -->
-        <test-method signature="TC23_alphaOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:38 IST" name="TC23_alphaOtp" finished-at="2026-04-29T16:44:39 IST" duration-ms="648" status="PASS">
+        <test-method signature="TC23_alphaOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:07 IST" name="TC23_alphaOtp" finished-at="2026-09-14T15:55:07 IST" duration-ms="516" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC23_alphaOtp -->
-        <test-method signature="TC24_specialCharOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:39 IST" name="TC24_specialCharOtp" finished-at="2026-04-29T16:44:39 IST" duration-ms="702" status="PASS">
+        <test-method signature="TC24_specialCharOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:07 IST" name="TC24_specialCharOtp" finished-at="2026-09-14T15:55:08 IST" duration-ms="527" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC24_specialCharOtp -->
-        <test-method signature="TC25_longOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:39 IST" name="TC25_longOtp" finished-at="2026-04-29T16:44:40 IST" duration-ms="715" status="PASS">
+        <test-method signature="TC25_longOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:08 IST" name="TC25_longOtp" finished-at="2026-09-14T15:55:08 IST" duration-ms="488" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC25_longOtp -->
-        <test-method signature="TC26_shortOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:40 IST" name="TC26_shortOtp" finished-at="2026-04-29T16:44:41 IST" duration-ms="699" status="PASS">
+        <test-method signature="TC26_shortOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:08 IST" name="TC26_shortOtp" finished-at="2026-09-14T15:55:09 IST" duration-ms="536" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC26_shortOtp -->
-        <test-method signature="TC27_reuseOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:41 IST" name="TC27_reuseOtp" finished-at="2026-04-29T16:44:42 IST" duration-ms="1143" status="PASS">
+        <test-method signature="TC27_reuseOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:09 IST" name="TC27_reuseOtp" finished-at="2026-09-14T15:55:10 IST" duration-ms="850" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC27_reuseOtp -->
-        <test-method signature="TC28_expiredOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:42 IST" name="TC28_expiredOtp" finished-at="2026-04-29T16:44:48 IST" duration-ms="6103" status="PASS">
+        <test-method signature="TC28_expiredOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:10 IST" name="TC28_expiredOtp" finished-at="2026-09-14T15:55:16 IST" duration-ms="5797" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC28_expiredOtp -->
-        <test-method signature="TC29_missingBodyOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:48 IST" name="TC29_missingBodyOtp" finished-at="2026-04-29T16:44:48 IST" duration-ms="120" status="PASS">
+        <test-method signature="TC29_missingBodyOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:16 IST" name="TC29_missingBodyOtp" finished-at="2026-09-14T15:55:16 IST" duration-ms="56" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC29_missingBodyOtp -->
-        <test-method signature="TC30_invalidContentTypeOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-04-29T16:44:48 IST" name="TC30_invalidContentTypeOtp" finished-at="2026-04-29T16:44:48 IST" duration-ms="138" status="PASS">
+        <test-method signature="TC30_invalidContentTypeOtp()[pri:0, instance:AuthAPI.LoginPagePartnerAPITest@35841320]" started-at="2026-09-14T15:55:16 IST" name="TC30_invalidContentTypeOtp" finished-at="2026-09-14T15:55:16 IST" duration-ms="85" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC30_invalidContentTypeOtp -->
