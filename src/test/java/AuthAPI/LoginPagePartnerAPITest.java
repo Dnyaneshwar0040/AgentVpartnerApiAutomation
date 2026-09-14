@@ -292,6 +292,8 @@ public class LoginPagePartnerAPITest {
 
         failure(res);
     }
+    
+    //Test
     @Test
     public void TC30_invalidContentTypeOtp() {
         Response res = given()
